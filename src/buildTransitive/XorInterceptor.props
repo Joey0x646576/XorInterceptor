@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <InterceptorsNamespaces>$(InterceptorsNamespaces);XorInterceptor</InterceptorsNamespaces>
+    <XorBuildSeed>$([System.Guid]::NewGuid().GetHashCode())</XorBuildSeed>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <CompilerVisibleProperty Include="XorBuildSeed" />
+  </ItemGroup>
+</Project>

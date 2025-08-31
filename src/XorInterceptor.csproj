@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+
+    <PackageId>XorInterceptor</PackageId>
+    <Authors>Joey0x646576</Authors>
+    <Description>XorInterceptor intercepts comment-style calls to Xor() at compile time preventing string literals to show up in the IL.</Description>
+    <Version>1.0.0</Version>
+    <PackageTags>interceptor source-generator generator xor string .NET IL ldstr</PackageTags>
+    <PackageReadmeFile>README.MD</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Joey0x646576/XorInterceptor</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Joey0x646576/XorInterceptor</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Copyright>Copyright (c) Joey0x646576</Copyright>
+
+    <IsRoslynComponent>true</IsRoslynComponent>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.13.0" PrivateAssets="all" />
+    <None Include="../README.MD" Pack="true" PackagePath="README.MD" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(TargetPath)" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="$(TargetDir)$(TargetName).pdb" Condition="Exists('$(TargetDir)$(TargetName).pdb')" Pack="true"
+          PackagePath="analyzers/dotnet/cs" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="buildTransitive\XorInterceptor.props" Pack="true" PackagePath="buildTransitive\XorInterceptor.props" />
+  </ItemGroup>
+
+</Project>
