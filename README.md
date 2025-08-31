@@ -4,7 +4,7 @@ It scans the syntax tree for calls named `Xor` with zero arguments. It retrieves
 
 > ⚠️ This currently requires .NET 9
 
-![devenv_wzIwCFKn4b](https://github.com/user-attachments/assets/6669c774-ac62-452c-b99b-cdb9ab623d13)
+![devenv_wzIwCFKn4b](https://i.imgur.com/Pa4DQ9U.gif)
 
 ## Installation
 ### Option A — NuGet (recommended)
@@ -32,19 +32,21 @@ It scans the syntax tree for calls named `Xor` with zero arguments. It retrieves
 
 ## Usage
 
-You can take a look at the console application included, however it is nothing more than:
+The most important requirement is how you write the string.
+You do not pass the string as a normal argument.
+Instead, you must place it inside a multi-line comment inside the Xor() call:
 
 ```csharp
 using static XorInterceptor.XorEncryption;
 
-var encryptedString = Xor( /*"Hello, World"*/);
+var encryptedString = Xor(/*"Hello, World"*/);
 Console.WriteLine(encryptedString);
 ```
 
 Now each time you (re)build your project the encryption changes.
 
 > ⚠️ This is of course very easy to undo, since both the encrypted data and the key are next to eachother. It is more a proof of concept.
-<img width="1100" height="900" alt="image" src="https://github.com/user-attachments/assets/731019b2-acd2-4f00-a2ce-e61d05bb33f1" />
+<img width="1100" height="900" alt="image" src="https://i.imgur.com/SsnOKh8.png" />
 
 ## References
 * https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-12#interceptors
